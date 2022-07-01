@@ -316,7 +316,7 @@ public class MainMenu extends FragmentActivity {
             //DogAdapter adapter = new DogAdapter(this, dogs);
             //listView.setAdapter(adapter);
             if (dogs.size() == 0) {
-                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.empty_background);
+                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.frame1);
             } else {
                 menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.full_background);
             }
@@ -503,7 +503,7 @@ public class MainMenu extends FragmentActivity {
 
     public void ChangeDogClick(View view) {
         ProgressDialog dialog = ProgressDialog.show(MainMenu.this, "",
-                "Loading. Please wait...", true);
+                "Загрузка. Пожалуйста, подождите...", true);
 
         ChangeDogFragment nowObj = (ChangeDogFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         MainMenuFragment fragment = new MainMenuFragment();
@@ -538,11 +538,11 @@ public class MainMenu extends FragmentActivity {
             } else {
                 dialog.dismiss();
                 if (nowObj.nameText.getText().toString().length() == 0)
-                    nowObj.nameText.setError("Empty name");
+                    nowObj.nameText.setError("Пустое поле Имя");
                 if (nowObj.ageText.getText().toString().length() == 0)
-                    nowObj.ageText.setError("Empty age");
+                    nowObj.ageText.setError("Пустое поле Возраст");
                 if (nowObj.breedText.getText().toString().length() == 0)
-                    nowObj.breedText.setError("Empty Breed");
+                    nowObj.breedText.setError("Пустое поле Порода");
             }
         }
     }
@@ -583,7 +583,7 @@ public class MainMenu extends FragmentActivity {
     public void CommitDogClick(View view)
     {
         ProgressDialog dialog = ProgressDialog.show(MainMenu.this, "",
-                "Loading. Please wait...", true);
+                "Загрузка. Пожалуйста, подождите...", true);
         AddDogFragment nowObj = (AddDogFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         MainMenuFragment fragment = new MainMenuFragment();
         fragment.dogs = dogs;
@@ -611,11 +611,11 @@ public class MainMenu extends FragmentActivity {
             } else {
                 dialog.dismiss();
                 if (nowObj.name.getText().toString().length() == 0)
-                    nowObj.name.setError("Empty name");
+                    nowObj.name.setError("Пустое поле Имя");
                 if (nowObj.age.getText().toString().length() == 0)
-                    nowObj.age.setError("Empty age");
+                    nowObj.age.setError("Пустое поле Возраст");
                 if (nowObj.breed.getText().toString().length() == 0)
-                    nowObj.breed.setError("Empty Breed");
+                    nowObj.breed.setError("Пустое поле Порода");
             }
         }
 
