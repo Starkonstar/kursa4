@@ -3,7 +3,6 @@ package com.example.dogwalk;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,19 +11,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.util.TimeFormatException;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Placeholder;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -33,10 +24,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.dogwalk.Adapters.DogAdapter;
 import com.example.dogwalk.Backend.Database.FireBaseCmd;
 import com.example.dogwalk.Backend.Objects.DogObject;
-import com.example.dogwalk.Backend.Objects.StatsObject;
 import com.example.dogwalk.Fragments.AddDogFragment;
 import com.example.dogwalk.Fragments.ChangeDogFragment;
 import com.example.dogwalk.Fragments.FoodPickerFragment;
@@ -52,7 +41,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -62,8 +50,6 @@ import java.io.InputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
 public class MainMenu extends FragmentActivity {
@@ -316,7 +302,7 @@ public class MainMenu extends FragmentActivity {
             //DogAdapter adapter = new DogAdapter(this, dogs);
             //listView.setAdapter(adapter);
             if (dogs.size() == 0) {
-                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.frame1);
+                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.empty_background);
             } else {
                 menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.full_background);
             }
