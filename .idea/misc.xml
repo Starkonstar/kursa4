@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.163" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/button_small_red.xml" value="0.1015" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/ic_launcher_background.xml" value="0.163" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/splah_back.xml" value="0.1015" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/add_dog_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/change_dog_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/day_statistics.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/dog_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/food_amount.xml" value="0.1" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/fragment_container.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/main_menu.xml" value="0.264" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_food.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_in_definite_day.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_walks.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/time_picker.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1015" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1015" />
+        <entry key="..\:/Users/carbo/Desktop/Android/dogwalk/app/src/main/res/layout/activity_main.xml" value="0.175" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/button_small.xml" value="0.196" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/circle.xml" value="0.197" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/img.xml" value="0.1955" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/item_no.xml" value="0.182" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/item_yes.xml" value="0.197" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/round_button.xml" value="0.1945" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/round_button2.xml" value="0.197" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/round_button3.xml" value="0.105" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/drawable/round_button4.xml" value="0.13" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/add_dog_fragment.xml" value="0.10190217391304347" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/change_dog_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/circle.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/dog_item.xml" value="0.16" />
+        <entry key="..\:/Users/carbo/Desktop/KRFINAL/android_dogwalk_project/app/src/main/res/layout/main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/add_dog_fragment.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/change_dog_fragment.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/day_statistics.xml" value="0.25" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/dog_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/empty_background.xml" value="0.1" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/food_amount.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/fragment_container.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/main_menu.xml" value="0.16" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/statistics.xml" value="0.14" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/statistics_food.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/statistics_in_definite_day.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/statistics_walks.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/carbo/Desktop/Sueta/android_dogwalk_project-main/app/src/main/res/layout/time_picker.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/add_dog_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/change_dog_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/dog_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/fragment_container.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/finis/Desktop/Kursovaya/android_dogwalk_project/app/src/main/res/layout/main_menu.xml" value="0.18" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/button_small_red.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/circle.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/circle_black.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/item_no.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/round_button.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/settings_button.xml" value="0.1695" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/drawable/square_black.xml" value="0.2" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/add_dog_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/change_dog_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/day_statistics.xml" value="0.2375" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/dog_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/food_amount.xml" value="0.2" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/fragment_container.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/main_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/statistics.xml" value="0.2" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/statistics_food.xml" value="0.18984375" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/statistics_in_definite_day.xml" value="0.253125" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/statistics_walks.xml" value="0.253125" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/time_picker.xml" value="0.264" />
+        <entry key="..\:/android_dogwalk_project-main/app/src/main/res/layout/time_picker_walk.xml" value="0.1921875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

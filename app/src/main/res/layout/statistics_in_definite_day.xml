@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Статистика"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DefiniteDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Дата"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <LinearLayout
+        android:id="@+id/linLayout"
+        android:layout_width="403dp"
+        android:layout_height="626dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DefiniteDate">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="490dp"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/dayStatisticsFood"
+                android:layout_width="196dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:divider="@color/white"
+                android:dividerHeight="0dp"
+                tools:listitem="@layout/statistics_food"></ListView>
+
+            <ListView
+                android:id="@+id/dayStatisticsWalks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:divider="@color/white"
+                android:dividerHeight="0dp"
+                tools:listitem="@layout/statistics_walks">
+
+            </ListView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/BackTimeButton"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/round_button3"
+            android:gravity="center"
+            android:onClick="BackClick"
+            android:text="Назад"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
