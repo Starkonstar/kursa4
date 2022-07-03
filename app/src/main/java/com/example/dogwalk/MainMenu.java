@@ -508,7 +508,7 @@ public class MainMenu extends FragmentActivity {
                 "Загрузка. Пожалуйста, подождите...", true);
 
         FoodPickerFragment nowObj = (FoodPickerFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
-        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, "0"));
+        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, "00:00"));
 
                 //Добавить работу с базой
                 FireBaseCmd cmd = new FireBaseCmd();
@@ -535,7 +535,7 @@ public class MainMenu extends FragmentActivity {
 
         ChangeDogFragment nowObj = (ChangeDogFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         MainMenuFragment fragment = new MainMenuFragment();
-        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, nowObj.time));
+        //nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, nowObj.time));
         fragment.dogs = dogs;
         if(nowObj!=null) {
             if ((nowObj.nameText.getText().toString().length() > 0)

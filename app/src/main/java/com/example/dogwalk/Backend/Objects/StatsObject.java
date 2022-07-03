@@ -70,7 +70,7 @@ public class StatsObject {
         return dayStats;
     }
 
-    public void setDayStats(List<DayStatObject> foodStats) {
+    public void setDayStats(List<DayStatObject> dayStats) {
         this.dayStats = dayStats;
     }
 }

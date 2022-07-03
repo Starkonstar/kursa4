@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.dogwalk.Adapters.StatsAdapter;
+import com.example.dogwalk.Adapters.StatsFoodAdapter;
+import com.example.dogwalk.Adapters.StatsTimeAdapter;
 import com.example.dogwalk.Backend.Objects.DogObject;
 import com.example.dogwalk.Backend.Objects.StatsObject;
 import com.example.dogwalk.MainMenu;
@@ -24,25 +26,32 @@ public class StatisticInDayFragment extends Fragment {
     public static StatisticInDayFragment newInstance() {
         return new StatisticInDayFragment();
     }
-    public ListView list;
+    public ListView list1, list2;
     public StatsObject current;
     public DogObject currentDog;
-    public StatsAdapter adapter;
+    public StatsFoodAdapter adapter1;
+    public StatsTimeAdapter adapter2;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        //MainMenu.newDogImg = true;
+        MainMenu.newDogImg = true;
 
         View root = inflater.inflate(R.layout.statistics_in_definite_day, container, false);
         TextView date = root.findViewById(R.id.DefiniteDate);
         date.setText(current.getDate().substring(3));
-//        list = root.findViewById(R.id.dayStatistics);
-//
-//        adapter = new StatsAdapter(this.getContext(), current.getStats());
-//        list.setAdapter(adapter);
-//        list.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
-//        list.setClickable(false);
+        list1 = root.findViewById(R.id.dayStatisticsFood);
+        list2 = root.findViewById(R.id.dayStatisticsWalks);
+
+        adapter1 = new StatsFoodAdapter(this.getContext(), current.getDayStats());
+        list1.setAdapter(adapter1);
+        list1.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
+        list1.setClickable(false);
+
+        adapter2 = new StatsTimeAdapter(this.getContext(), current.getDayStats());
+        list2.setAdapter(adapter2);
+        list2.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
+        list2.setClickable(false);
 
 
         return root;

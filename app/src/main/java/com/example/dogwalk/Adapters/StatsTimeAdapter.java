@@ -15,6 +15,7 @@ import com.example.dogwalk.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatsTimeAdapter extends BaseAdapter {
@@ -24,7 +25,10 @@ public class StatsTimeAdapter extends BaseAdapter {
 
     public StatsTimeAdapter(Context ctext, List<DayStatObject> list_stats) {
         context = ctext;
-        stats = list_stats;
+        stats = new ArrayList<>();
+        for(int i=0;i<list_stats.size();i++){
+            if (list_stats.get(i).getTime()!="00:00") stats.add(list_stats.get(i));
+        }
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -52,25 +56,33 @@ public class StatsTimeAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if (view == null) {
-            view = inflater.inflate(R.layout.day_statistics, parent, false);
+            view = inflater.inflate(R.layout.statistics_walks, parent, false);
         }
 
-        StatsObject stat = getStat(position);
+        DayStatObject stat = getStat(position);
 
-        TextView text_date = view.findViewById(R.id.date);
-        TextView text_food = view.findViewById(R.id.foodCount);
-        TextView text_walk = view.findViewById(R.id.walkCount);
-        ImageView img_food = view.findViewById(R.id.food);
-        ImageView img_walk = view.findViewById(R.id.walk);
+        //TextView textFood = view.findViewById(R.id.foodWeight);
+        //ImageView img_food = view.findViewById(R.id.food);
+        TextView textWalk = view.findViewById(R.id.walkTime);
+         ImageView img_walk = view.findViewById(R.id.walk);
 
-        text_date.setText(stat.getDate().substring(3));
-        text_food.setText(Integer.toString(stat.getFood()));
-        text_walk.setText(Integer.toString(stat.getWalk()));
+        //textFood.setText(stat.getWeight()+"");
+        textWalk.setText(stat.getTime());
+
+//        TextView text_date = view.findViewById(R.id.date);
+//        TextView text_food = view.findViewById(R.id.foodCount);
+//        TextView text_walk = view.findViewById(R.id.walkCount);
+//        ImageView img_food = view.findViewById(R.id.food);
+//        ImageView img_walk = view.findViewById(R.id.walk);
+//
+//        text_date.setText(stat.getDate().substring(3));
+//        text_food.setText(Integer.toString(stat.getFood()));
+//        text_walk.setText(Integer.toString(stat.getWalk()));
 
         return view;
     }
 
-    StatsObject getStat(int position) {
-        return ((StatsObject) getItem(position));
+    DayStatObject getStat(int position) {
+        return ((DayStatObject) getItem(position));
     }
 }
