@@ -44,6 +44,7 @@ public class StatisticInDayFragment extends Fragment {
 //        list.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
 //        list.setClickable(false);
 
+
         return root;
     }
 }

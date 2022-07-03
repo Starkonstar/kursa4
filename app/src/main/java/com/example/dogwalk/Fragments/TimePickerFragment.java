@@ -20,6 +20,8 @@ public class TimePickerFragment extends Fragment {
         return new TimePickerFragment();
     }
     public DogObject currentDog;
+//    public int weight;
+    public String time;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {

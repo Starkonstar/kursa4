@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +26,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.dogwalk.Backend.Database.FireBaseCmd;
+import com.example.dogwalk.Backend.Objects.DayStatObject;
 import com.example.dogwalk.Backend.Objects.DogObject;
+import com.example.dogwalk.Backend.Objects.StatsObject;
 import com.example.dogwalk.Fragments.AddDogFragment;
 import com.example.dogwalk.Fragments.ChangeDogFragment;
 import com.example.dogwalk.Fragments.FoodPickerFragment;
@@ -336,6 +339,8 @@ public class MainMenu extends FragmentActivity {
 
         pauseThread = true;
         FoodPickerFragment fragment = new FoodPickerFragment();
+       // fragment.time = nowObj.time;
+        fragment.weight = nowObj.weight;
         fragment.currentDog = nowObj.currentDog;
         fragment.currentDog.foodCounter = nowObj.foodCounter;
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -367,6 +372,9 @@ public class MainMenu extends FragmentActivity {
         FoodPickerFragment nowObj = (FoodPickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         nowObj.currentDog.foodCounter++;
         ChangeDogFragment fragment = new ChangeDogFragment();
+        //fragment.time = nowObj.time;
+        EditText textView = findViewById(R.id.amount_of_food);
+        fragment.weight = Integer.parseInt(textView.getText().toString());
         fragment.currentDog = nowObj.currentDog;
         fragment.name = nowObj.currentDog.getName();
         fragment.age = nowObj.currentDog.getAge();
@@ -375,6 +383,8 @@ public class MainMenu extends FragmentActivity {
         fragment.uri = nowObj.currentDog.getUri();
         fragment.walkCounter = nowObj.currentDog.getWalkCounter();
         fragment.foodCounter = nowObj.currentDog.getFoodCounter();
+        nowObj.weight=Integer.parseInt(textView.getText().toString());
+        AddChangeDogFood(view);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
@@ -394,6 +404,7 @@ public class MainMenu extends FragmentActivity {
         pauseThread = true;
         //nowObj = (ChangeDogFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         TimePickerFragment fragment = new TimePickerFragment();
+        //fragment.weight = nowObj.weight;
         fragment.currentDog = nowObj.currentDog;
         fragment.currentDog.walkCounter = nowObj.walkCounter;
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -425,6 +436,9 @@ public class MainMenu extends FragmentActivity {
         TimePickerFragment nowObj = (TimePickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         nowObj.currentDog.walkCounter++;
         ChangeDogFragment fragment = new ChangeDogFragment();
+        //fragment.weight = nowObj.weight;
+        EditText textView = findViewById(R.id.timeAdd);
+        fragment.time = textView.getText().toString();
         fragment.currentDog = nowObj.currentDog;
         fragment.name = nowObj.currentDog.getName();
         fragment.age = nowObj.currentDog.getAge();
@@ -433,6 +447,8 @@ public class MainMenu extends FragmentActivity {
         fragment.uri = nowObj.currentDog.getUri();
         fragment.walkCounter = nowObj.currentDog.getWalkCounter();
         fragment.foodCounter = nowObj.currentDog.getFoodCounter();
+        nowObj.time = fragment.time;
+        AddChangeDogTime(view);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
@@ -487,12 +503,39 @@ public class MainMenu extends FragmentActivity {
         }
     }
 
+    public void AddChangeDogFood(View view) {
+        ProgressDialog dialog = ProgressDialog.show(MainMenu.this, "",
+                "Загрузка. Пожалуйста, подождите...", true);
+
+        FoodPickerFragment nowObj = (FoodPickerFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
+        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, "0"));
+
+                //Добавить работу с базой
+                FireBaseCmd cmd = new FireBaseCmd();
+                cmd.AddChange(nowObj.currentDog);
+        dialog.dismiss();
+    }
+
+    public void AddChangeDogTime(View view) {
+        ProgressDialog dialog = ProgressDialog.show(MainMenu.this, "",
+                "Загрузка. Пожалуйста, подождите...", true);
+
+        TimePickerFragment nowObj = (TimePickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
+        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(0, nowObj.time));
+
+        //Добавить работу с базой
+        FireBaseCmd cmd = new FireBaseCmd();
+        cmd.AddChange(nowObj.currentDog);
+        dialog.dismiss();
+    }
+
     public void ChangeDogClick(View view) {
         ProgressDialog dialog = ProgressDialog.show(MainMenu.this, "",
                 "Загрузка. Пожалуйста, подождите...", true);
 
         ChangeDogFragment nowObj = (ChangeDogFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         MainMenuFragment fragment = new MainMenuFragment();
+        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, nowObj.time));
         fragment.dogs = dogs;
         if(nowObj!=null) {
             if ((nowObj.nameText.getText().toString().length() > 0)
@@ -504,6 +547,7 @@ public class MainMenu extends FragmentActivity {
                 newDog.setUri(nowObj.uri);
                 newDog.setFoodCounter(nowObj.foodCounter);
                 newDog.setWalkCounter(nowObj.walkCounter);
+                newDog.setStats(nowObj.currentDog.stats);
 
                 //Добавить работу с базой
                 FireBaseCmd cmd = new FireBaseCmd();
@@ -514,7 +558,6 @@ public class MainMenu extends FragmentActivity {
                         dogs.set(i, newDog);
                     }
                 }
-
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.FragmentActivity, fragment);

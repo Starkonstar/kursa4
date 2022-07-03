@@ -47,6 +47,9 @@ public class ChangeDogFragment extends Fragment {
     public TextView foodCounterLabel;
     public TextView walkCounterLabel;
 
+    public String time="00:00";
+    public int weight=0;
+
     public int foodCounter;
     public int walkCounter;
 

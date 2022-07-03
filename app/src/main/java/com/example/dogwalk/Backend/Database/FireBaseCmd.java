@@ -44,7 +44,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FireBaseCmd {
-
+    //public static int i = 1;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public void AddDog(DogObject dog){
@@ -53,6 +53,7 @@ public class FireBaseCmd {
         Map<String, Object> dogStats = new HashMap<>();
         String[] date_splitted = currentTime.toString().split(" ");
         Map<String, Object> dogMap = new HashMap<>();
+        Map<String,Object> dogDayStats = new HashMap<>();
         assert currentUser != null;
         dogMap.put("name", dog.getName());
         dogMap.put("breed", dog.getBreed());
@@ -64,6 +65,8 @@ public class FireBaseCmd {
         dogStats.put("date",date_splitted[0]+date_splitted[1]+date_splitted[2]);
         dogStats.put("food", dog.getFoodCounter());
         dogStats.put("walk", dog.getWalkCounter());
+        dogDayStats.put("food weight",0+"");
+        dogDayStats.put("walk time",0+"");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId())
                 .set(dogMap).addOnSuccessListener(aVoid -> {});//Exception
@@ -76,6 +79,7 @@ public class FireBaseCmd {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Map<String, Object> dogMap = new HashMap<>();
         Map<String, Object> dogStats = new HashMap<>();
+        Map<String,Object> dogDayStats = new HashMap<>();
         String[] date_splitted = currentTime.toString().split(" ");
         assert currentUser != null;
         dogMap.put("name", dog.getName());
@@ -88,17 +92,42 @@ public class FireBaseCmd {
         dogStats.put("date",date_splitted[0]+date_splitted[1]+date_splitted[2]);
         dogStats.put("food", dog.getFoodCounter());
         dogStats.put("walk", dog.getWalkCounter());
+        //dogDayStats.put("food weight",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getWeight());
+        //dogDayStats.put("walk time",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getTime());
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId())
                 .update(dogMap).addOnSuccessListener(aVoid -> {});//Exception
         db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats")
                 .document(date_splitted[0]+date_splitted[1]+date_splitted[2]).set(dogStats).addOnSuccessListener(aVoid -> {});//Exception
+        //db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats")
+                //.document(date_splitted[0]+date_splitted[1]+date_splitted[2]).collection("DayStats").document(currentTime.toString()).set(dogDayStats).addOnSuccessListener(aVoid -> {});
     }
+
+    public void AddChange(DogObject dog){
+        Date currentTime = Calendar.getInstance().getTime();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Map<String, Object> dogStats = new HashMap<>();
+        Map<String,Object> dogDayStats = new HashMap<>();
+        String[] date_splitted = currentTime.toString().split(" ");
+        assert currentUser != null;
+        dogDayStats.put("food weight",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getWeight());
+        dogDayStats.put("walk time",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getTime());
+        dogStats.put("date",date_splitted[0]+date_splitted[1]+date_splitted[2]);
+        dogStats.put("food", dog.getFoodCounter());
+        dogStats.put("walk", dog.getWalkCounter());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats")
+                .document(date_splitted[0]+date_splitted[1]+date_splitted[2]).set(dogStats).addOnSuccessListener(aVoid -> {});
+        db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats")
+                .document(date_splitted[0]+date_splitted[1]+date_splitted[2]).collection("DayStats").document(currentTime.toString()).set(dogDayStats).addOnSuccessListener(aVoid -> {});
+    }
+
     public void DeleteDog(String id){
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
         db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(id)
                 .delete().addOnSuccessListener(aVoid -> {});//Exception
     }

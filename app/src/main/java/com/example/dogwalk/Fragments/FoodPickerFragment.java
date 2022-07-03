@@ -18,7 +18,8 @@ public class FoodPickerFragment extends Fragment {
         return new FoodPickerFragment();
     }
     public DogObject currentDog;
-
+//    public String time;
+    public int weight;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
