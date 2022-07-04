@@ -154,6 +154,17 @@ public class MainMenu extends FragmentActivity {
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
         fragmentTransaction.commit();
     }
+    public void DBBackClick(View view){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MainMenuFragment menuFragment = new MainMenuFragment();
+        menuFragment.dogs = dogs;
+        fragmentTransaction.replace(R.id.FragmentActivity,menuFragment );
+        fragmentTransaction.commit();
+
+        pauseThread = false;
+    }
+
     public void clickAddImg(View view) {
 
                 //Вызываем стандартную галерею для выбора изображения с помощью Intent.ACTION_PICK:
