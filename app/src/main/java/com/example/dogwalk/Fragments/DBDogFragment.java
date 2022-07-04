@@ -1,6 +1,7 @@
 package com.example.dogwalk.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class DBDogFragment extends Fragment {
         return new DBDogFragment();
     }
     public ListView list;
-    public List<DogObject> dogs = new ArrayList<>();
+    public List<DogObject> dogs;
     public DBDogAdapter adapter;
     public View root;
     @Override
@@ -32,6 +33,8 @@ public class DBDogFragment extends Fragment {
         root = inflater.inflate(R.layout.db_pets, container, false);
         list = root.findViewById(R.id.DBList);
         adapter = new DBDogAdapter(this.getContext(), dogs);
+        list.setAdapter(adapter);
+        list.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
         list.setClickable(false);
         return root;
     }

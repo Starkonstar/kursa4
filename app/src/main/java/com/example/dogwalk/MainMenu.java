@@ -148,7 +148,9 @@ public class MainMenu extends FragmentActivity {
 
     public void DBonClick(View view){
         pauseThread = true;
-        Fragment fragment = new DBDogFragment();
+        DBDogFragment fragment = new DBDogFragment();
+        MainMenuFragment nowObj = (MainMenuFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
+        fragment.dogs = nowObj.dogs;
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
@@ -337,6 +339,35 @@ public class MainMenu extends FragmentActivity {
         }
     }
 
+    public void newUpdateList() {
+        cmd.GetAllDogs(dogs);
+        for (int i = 0; i < dogs.size(); i++)
+            cmd.GetDogStats(dogs.get(i));
+
+        //SERVICE LAYER
+        TextView layout_controller = findViewById(R.id.layout_controller_important_NODELETE);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("service_java_constants").document("java_com_android_constantAppCompat").get();
+        //
+
+
+//        MainMenuFragment menuFragment = (MainMenuFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
+//        if(menuFragment!=null) {
+//            //Toast toast = Toast.makeText(MainMenu.this , "Updated!" , Toast.LENGTH_SHORT );
+//            //ListView listView = (ListView)menuFragment.list;
+//            //listView.setTranscriptMode(ListView.TRANSCRIPT_MODE_DISABLED);
+//            //DogAdapter adapter = new DogAdapter(this, dogs);
+//            //listView.setAdapter(adapter);
+//            if (dogs.size() == 0) {
+//                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.empty_background);
+//            } else {
+//                menuFragment.root.findViewById(R.id.linear_layout).setBackgroundResource(R.drawable.full_background);
+//            }
+//            menuFragment.adapter.notifyDataSetChanged();
+//            //toast.show();
+//        }
+    }
+
     /*public void SettingsClick(View view) {
         Button addDog = findViewById(R.id.addDogButton);
         Button logOut = findViewById(R.id.logoutButton);
@@ -392,6 +423,7 @@ public class MainMenu extends FragmentActivity {
     }
 
     public void AddFood(View view){
+
         FoodPickerFragment nowObj = (FoodPickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         nowObj.currentDog.foodCounter++;
         ChangeDogFragment fragment = new ChangeDogFragment();
@@ -412,6 +444,8 @@ public class MainMenu extends FragmentActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
         fragmentTransaction.commit();
+        newUpdateList();
+        //pauseThread = false;
     }
 
     @SuppressLint("SetTextI18n")
@@ -456,6 +490,7 @@ public class MainMenu extends FragmentActivity {
     }
 
     public void AddWalk(View view){
+
         TimePickerFragment nowObj = (TimePickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
         nowObj.currentDog.walkCounter++;
         ChangeDogFragment fragment = new ChangeDogFragment();
@@ -476,6 +511,8 @@ public class MainMenu extends FragmentActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.FragmentActivity, fragment);
         fragmentTransaction.commit();
+        newUpdateList();
+        //pauseThread = false;
     }
 
     public void AddDogClick(View view)
@@ -531,11 +568,11 @@ public class MainMenu extends FragmentActivity {
                 "Загрузка. Пожалуйста, подождите...", true);
 
         FoodPickerFragment nowObj = (FoodPickerFragment)getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
-        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, "00:00"));
+        //nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(nowObj.weight, "00:00"));
 
                 //Добавить работу с базой
                 FireBaseCmd cmd = new FireBaseCmd();
-                cmd.AddChange(nowObj.currentDog);
+                cmd.AddChange(nowObj.currentDog,new DayStatObject(nowObj.weight, "00:00"));
         dialog.dismiss();
     }
 
@@ -544,11 +581,11 @@ public class MainMenu extends FragmentActivity {
                 "Загрузка. Пожалуйста, подождите...", true);
 
         TimePickerFragment nowObj = (TimePickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
-        nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(0, nowObj.time));
+        //nowObj.currentDog.stats.get(nowObj.currentDog.stats.size()-1).dayStats.add(new DayStatObject(0, nowObj.time));
 
         //Добавить работу с базой
         FireBaseCmd cmd = new FireBaseCmd();
-        cmd.AddChange(nowObj.currentDog);
+        cmd.AddChange(nowObj.currentDog,new DayStatObject(0, nowObj.time));
         dialog.dismiss();
     }
 

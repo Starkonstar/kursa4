@@ -2,6 +2,7 @@ package com.example.dogwalk.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,12 +26,14 @@ public class DBDogAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     List<DogObject> dogs;
+
     public DBDogAdapter(Context ctext, List<DogObject> list_dog) {
         context = ctext;
         dogs = list_dog;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
     @Override
     public int getCount() {
         return dogs.size();
@@ -59,6 +62,10 @@ public class DBDogAdapter extends BaseAdapter {
 
         DogObject dog = getDog(position);
 
+        ((TextView) view.findViewById(R.id.DBname)).setText(dog.getName());
+        ((TextView) view.findViewById(R.id.DBage)).setText(dog.getAge());
+        ((TextView) view.findViewById(R.id.DBbreed)).setText(dog.getBreed());
+
 //        if(dog.getFoodCounter()==0||dog.getWalkCounter()==0) {
 //            view.setBackground(ContextCompat.getDrawable(context, R.drawable.item_no));
 //        }
@@ -66,7 +73,7 @@ public class DBDogAdapter extends BaseAdapter {
 //        if(dog.getFoodCounter()>1||dog.getWalkCounter()>1) {
 //            view.setBackground(ContextCompat.getDrawable(context, R.drawable.item_yes));
 //        }
-
+//
 //        ImageView img = view.findViewById(R.id.imageView2);
 //        ImageView img_food = view.findViewById(R.id.food);
 //        ImageView img_walk = view.findViewById(R.id.walk);
@@ -82,31 +89,14 @@ public class DBDogAdapter extends BaseAdapter {
 //        if(dog.getWalkCounter()>1){
 //            Glide.with(view).load(R.drawable.walk_yes).placeholder(R.drawable.walk_no).diskCacheStrategy(DiskCacheStrategy.ALL).into(img_walk);
 //        }
-        ((TextView) view.findViewById(R.id.DBname)).setText(dog.getName());
-        ((TextView) view.findViewById(R.id.DBbreed)).setText(dog.getBreed());
-        ((TextView) view.findViewById(R.id.DBage)).setText(dog.getAge());
-        //((TextView) view.findViewById(R.id.dogBreed)).setText(dog.getBreed());
+//        ((TextView) view.findViewById(R.id.dogName)).setText(dog.getName());
+//        ((TextView) view.findViewById(R.id.walkCount)).setText(Integer.toString(dog.getWalkCounter()));
+//        ((TextView) view.findViewById(R.id.foodCount)).setText(Integer.toString(dog.getFoodCounter()));
+//        //((TextView) view.findViewById(R.id.dogBreed)).setText(dog.getBreed());
 //        if(dog.getUri()!=null) {
 //            Glide.with(view).load(dog.getUri()).placeholder(R.drawable.love).diskCacheStrategy(DiskCacheStrategy.ALL).apply(RequestOptions.circleCropTransform()).into(img);
 //        }
-        /*
-        StorageReference ref = storageReference.child("images/"+ dog.getId());
-        View finalView = view;
-        ref.getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(finalView).load(uri).placeholder(R.drawable.love).diskCacheStrategy(DiskCacheStrategy.ALL).apply(RequestOptions.circleCropTransform()).into(img);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        MainMenu.uploadImage(dog.getId());
-                        Glide.with(finalView).load(R.drawable.love).placeholder(R.drawable.love).diskCacheStrategy(DiskCacheStrategy.ALL).apply(RequestOptions.circleCropTransform()).into(img);
-                    }
-                });
-                */
+
 
         return view;
     }

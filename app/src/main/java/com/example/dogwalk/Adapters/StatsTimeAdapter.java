@@ -27,7 +27,7 @@ public class StatsTimeAdapter extends BaseAdapter {
         context = ctext;
         stats = new ArrayList<>();
         for(int i=0;i<list_stats.size();i++){
-            if (list_stats.get(i).getTime()!="00:00") stats.add(list_stats.get(i));
+            if (!list_stats.get(i).getTime().equals("00:00")) stats.add(list_stats.get(i));
         }
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -47,6 +47,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class FireBaseCmd {
     //public static int i = 1;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private List<String> addedStats = new ArrayList<>();
 
     public void AddDog(DogObject dog){
         Date currentTime = Calendar.getInstance().getTime();
@@ -104,7 +105,7 @@ public class FireBaseCmd {
                 //.document(date_splitted[0]+date_splitted[1]+date_splitted[2]).collection("DayStats").document(currentTime.toString()).set(dogDayStats).addOnSuccessListener(aVoid -> {});
     }
 
-    public void AddChange(DogObject dog){
+    public void AddChange(DogObject dog, DayStatObject dayStatObject){
         Date currentTime = Calendar.getInstance().getTime();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Map<String, Object> dogMap = new HashMap<>();
@@ -119,8 +120,10 @@ public class FireBaseCmd {
         dogMap.put("food", dog.getFoodCounter());
         dogMap.put("walk", dog.getWalkCounter());
         dogMap.put("date", currentTime.toString());
-        dogDayStats.put("food weight",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getWeight());
-        dogDayStats.put("walk time",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getTime());
+        //dogDayStats.put("food weight",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getWeight());
+        //dogDayStats.put("walk time",dog.stats.get(dog.stats.size()-1).dayStats.get(dog.stats.get(dog.stats.size()-1).dayStats.size()-1).getTime());
+        dogDayStats.put("food weight",dayStatObject.getWeight());
+        dogDayStats.put("walk time", dayStatObject.getTime());
         dogStats.put("date",date_splitted[0]+date_splitted[1]+date_splitted[2]);
         dogStats.put("food", dog.getFoodCounter());
         dogStats.put("walk", dog.getWalkCounter());
@@ -162,12 +165,25 @@ public class FireBaseCmd {
                 });
         for(int i=0;i<dog.stats.size();i++){
 
+            int finalI = i;
             db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats").document(dog.stats.get(i).getDate())
                     .collection("DayStats").get().addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             //List<Map<String, Object>> dogsToReturn = new ArrayList<>();
                             for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
-                               // UpdateDogStats2(dog, document.getData());
+                                String[] date_splitted = document.getId().toString().split(" ");
+                                String dayDate = date_splitted[0]+date_splitted[1]+date_splitted[2];
+                                if (!addedStats.contains(document.getId().toString())){
+                                    addedStats.add(document.getId().toString());
+                                    Log.d("RRR",dog.getStats().get(finalI).getDate()+" dog");
+                                    Log.d("RRR",dayDate+" day" + document.getData().get("food weight"));
+                                    if (dog.getStats().get(finalI).getDate().equals(dayDate)) {
+                                        dog.getStats().get(finalI).dayStats.add(new DayStatObject(Integer.parseInt(document.getData().get("food weight").toString()), document.getData().get("walk time").toString()));
+                                        Log.d("RRR",dog.getStats().get(finalI).getDate()+" dog"+dog.getStats().get(finalI).dayStats.get(dog.getStats().get(finalI).dayStats.size()-1).getWeight());
+                                        Log.d("RRR",dayDate+" day" + document.getData().get("food weight"));
+                                    }
+                                }
+                                    //dog.getStats().get(finalI).dayStats.add(new DayStatObject(Integer.parseInt(document.getData().get("food weight").toString()), document.getData().get("walk time").toString()));
                             }
                         } else {
                             Log.w("", "Error getting documents.", task.getException());

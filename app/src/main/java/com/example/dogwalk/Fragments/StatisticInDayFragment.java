@@ -1,6 +1,7 @@
 package com.example.dogwalk.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.dogwalk.Adapters.StatsAdapter;
 import com.example.dogwalk.Adapters.StatsFoodAdapter;
 import com.example.dogwalk.Adapters.StatsTimeAdapter;
+import com.example.dogwalk.Backend.Objects.DayStatObject;
 import com.example.dogwalk.Backend.Objects.DogObject;
 import com.example.dogwalk.Backend.Objects.StatsObject;
 import com.example.dogwalk.MainMenu;
@@ -36,6 +38,7 @@ public class StatisticInDayFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         MainMenu.newDogImg = true;
+        Log.d("RRR",current.getDayStats().size()+" "+current.getWalk()+" "+current.getFood());
 
         View root = inflater.inflate(R.layout.statistics_in_definite_day, container, false);
         TextView date = root.findViewById(R.id.DefiniteDate);
