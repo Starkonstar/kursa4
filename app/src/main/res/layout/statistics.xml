@@ -23,14 +23,14 @@
             <TextView
                 android:id="@+id/dogName"
                 android:layout_width="385dp"
-                android:layout_height="wrap_content"
+                android:layout_height="10dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:paddingTop="30dp"
                 android:text="Записи по датам :"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="40sp" />
 
             <ListView
                 android:id="@+id/dayStatistics"

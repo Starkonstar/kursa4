@@ -161,12 +161,13 @@ public class FireBaseCmd {
                     }
                 });
         for(int i=0;i<dog.stats.size();i++){
+
             db.collection("Users").document(Objects.requireNonNull(currentUser.getEmail())).collection("Dogs").document(dog.getId()).collection("Stats").document(dog.stats.get(i).getDate())
                     .collection("DayStats").get().addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             //List<Map<String, Object>> dogsToReturn = new ArrayList<>();
                             for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
-                                UpdateDogStats2(dog, document.getData());
+                               // UpdateDogStats2(dog, document.getData());
                             }
                         } else {
                             Log.w("", "Error getting documents.", task.getException());

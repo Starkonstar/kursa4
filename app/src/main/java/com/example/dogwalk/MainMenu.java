@@ -31,6 +31,7 @@ import com.example.dogwalk.Backend.Objects.DogObject;
 import com.example.dogwalk.Backend.Objects.StatsObject;
 import com.example.dogwalk.Fragments.AddDogFragment;
 import com.example.dogwalk.Fragments.ChangeDogFragment;
+import com.example.dogwalk.Fragments.DBDogFragment;
 import com.example.dogwalk.Fragments.FoodPickerFragment;
 import com.example.dogwalk.Fragments.MainMenuFragment;
 import com.example.dogwalk.Fragments.StatisticInDayFragment;
@@ -99,6 +100,8 @@ public class MainMenu extends FragmentActivity {
         //
     }
 
+
+
     public void BackToDog_Time(View view) {
         pauseThread = true;
         TimePickerFragment nowObj = (TimePickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
@@ -142,6 +145,15 @@ public class MainMenu extends FragmentActivity {
     private final int Pick_image = 1;
 
     public static boolean newDogImg = false;
+
+    public void DBonClick(View view){
+        pauseThread = true;
+        Fragment fragment = new DBDogFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.FragmentActivity, fragment);
+        fragmentTransaction.commit();
+    }
     public void clickAddImg(View view) {
 
                 //Вызываем стандартную галерею для выбора изображения с помощью Intent.ACTION_PICK:

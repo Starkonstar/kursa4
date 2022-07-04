@@ -7,14 +7,17 @@
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/button_small_red.xml" value="0.1015" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/ic_launcher_background.xml" value="0.163" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/drawable/splah_back.xml" value="0.1015" />
-        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/add_dog_fragment.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/change_dog_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/activity_main.xml" value="0.16052631578947368" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/add_dog_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/change_dog_fragment.xml" value="0.2" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/day_statistics.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/db_dog.xml" value="0.264" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/db_pets.xml" value="0.2" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/dog_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/food_amount.xml" value="0.1" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/fragment_container.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/main_menu.xml" value="0.264" />
-        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics.xml" value="0.2" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_food.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_in_definite_day.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Kostya/AndroidStudioProjects/android_dogwalk_project-main/app/src/main/res/layout/statistics_walks.xml" value="0.25416666666666665" />
