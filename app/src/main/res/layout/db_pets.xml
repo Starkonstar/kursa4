@@ -44,21 +44,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/DBList"
-        android:layout_width="384dp"
-        android:layout_height="586dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/db_dog" >
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="410dp"
+        android:layout_height="679dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:layout_editor_absoluteX="0dp">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="410dp"
-            android:layout_height="679dp"
-            android:orientation="vertical">
+        <ListView
+            android:id="@+id/DBList"
+            android:layout_width="match_parent"
+            android:layout_height="669dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/db_dog"></ListView>
 
-        </LinearLayout>
-    </ListView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

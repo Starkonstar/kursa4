@@ -97,22 +97,23 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 tools:ignore="RtlHardcoded">
+
                 <TextView
                     android:id="@+id/walk"
                     android:layout_width="100dp"
                     android:layout_height="64dp"
-                    android:adjustViewBounds="true"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="20dp"
-                    android:scaleType="fitXY"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:paddingLeft="9dp"
+                    android:paddingTop="20dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/walk"
                     android:text="Возраст"
                     android:textColor="#000000"
-                    android:textSize="22dp"/>
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/DBage"

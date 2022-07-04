@@ -425,11 +425,17 @@ public class MainMenu extends FragmentActivity {
     public void AddFood(View view){
 
         FoodPickerFragment nowObj = (FoodPickerFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
-        nowObj.currentDog.foodCounter++;
         ChangeDogFragment fragment = new ChangeDogFragment();
-        //fragment.time = nowObj.time;
         EditText textView = findViewById(R.id.amount_of_food);
-        fragment.weight = Integer.parseInt(textView.getText().toString());
+        if (isNumeric(textView.getText().toString())) {
+            fragment.weight = Integer.parseInt(textView.getText().toString());
+        }
+        else{
+            textView.setError("Необходимо целое число");
+            return;
+        }
+        nowObj.currentDog.foodCounter++;
+        //fragment.time = nowObj.time;
         fragment.currentDog = nowObj.currentDog;
         fragment.name = nowObj.currentDog.getName();
         fragment.age = nowObj.currentDog.getAge();
@@ -446,6 +452,15 @@ public class MainMenu extends FragmentActivity {
         fragmentTransaction.commit();
         newUpdateList();
         //pauseThread = false;
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 
     @SuppressLint("SetTextI18n")

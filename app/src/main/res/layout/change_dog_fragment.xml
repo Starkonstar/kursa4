@@ -177,17 +177,6 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/foodPlusButton"
-                        android:layout_width="24dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-
-                        android:background="@drawable/round_button3"
-                        android:onClick="MinusFoodClick"
-                        android:text="-"
-                        android:textSize="24sp" />
-
                     <TextView
                         android:id="@+id/foodCounterLabel"
                         android:layout_width="wrap_content"
@@ -238,16 +227,6 @@
                     android:background="@drawable/round_button3"
                     android:gravity="center"
                     android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/walkPlusButton"
-                        android:layout_width="24dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/round_button3"
-                        android:onClick="MinusWalkClick"
-                        android:text="-"
-                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/walkCounterLabel"
