@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/dogName"
                 android:layout_width="385dp"
-                android:layout_height="10dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:paddingTop="30dp"
@@ -35,7 +35,7 @@
             <ListView
                 android:id="@+id/dayStatistics"
                 android:layout_width="match_parent"
-                android:layout_height="519dp"
+                android:layout_height="669dp"
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:divider="@color/white"
@@ -43,6 +43,20 @@
                 tools:listitem="@layout/day_statistics">
 
             </ListView>
+            <Button
+                android:id="@+id/BackTimeButton"
+                android:layout_width="203dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/round_button3"
+                android:gravity="center"
+                android:onClick="StatsExitOnClick"
+                android:text="Назад"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
     </FrameLayout>

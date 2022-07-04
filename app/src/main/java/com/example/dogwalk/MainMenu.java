@@ -564,6 +564,24 @@ public class MainMenu extends FragmentActivity {
         fragmentTransaction.commit();
     }
 
+    public void StatsExitOnClick(View view){
+        pauseThread = true;
+        StatisticsFragment nowObj = (StatisticsFragment) getSupportFragmentManager().findFragmentById(R.id.FragmentActivity);
+        ChangeDogFragment fragment = new ChangeDogFragment();
+        fragment.currentDog = nowObj.currentDog;
+        fragment.name = nowObj.currentDog.getName();
+        fragment.age = nowObj.currentDog.getAge();
+        fragment.breed = nowObj.currentDog.getBreed();
+        fragment.id = nowObj.currentDog.getId();
+        fragment.uri = nowObj.currentDog.getUri();
+        fragment.walkCounter = nowObj.currentDog.getWalkCounter();
+        fragment.foodCounter = nowObj.currentDog.getFoodCounter();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.FragmentActivity, fragment);
+        fragmentTransaction.commit();
+    }
+
 
     public void LogoutClick(View view)
     {
